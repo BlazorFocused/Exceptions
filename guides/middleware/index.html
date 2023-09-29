@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Middleware | Documentation </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Middleware | Documentation ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/BlazorFocused.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="guides/Middleware/index">
+<h1 id="blazorfocusedexceptionsmiddleware-guides">BlazorFocused.Exceptions.Middleware Guides</h1>
+
+<p>Exceptions Middleware allows applications to determine status codes and error messages for exceptions thrown in the application. This allows the application to be more flexible in how it handles exceptions and allows the application to be more consistent in how it handles exceptions.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="configuration">Configuration</h3>
+<p>Register Exception Status Codes (Program.cs or Startup.cs)</p>
+<pre><code class="lang-csharp">builder.Services
+    .AddExceptionsMiddleware()
+        .AddException&lt;YourCustomOrBuiltInException&gt;(HttpStatusCode.GatewayTimeout);
+</code></pre>
+<p>Activate Exception Handling Middleware (Program.cs or Startup.cs)</p>
+<pre><code class="lang-csharp">app.UseExceptionsMiddleware();
+</code></pre>
+<h3 id="behavior">Behavior</h3>
+<p>With the setup in the previous section, now throwing your <code>YourCustomOrBuiltInException</code> exception type will generate the following output in the response body:</p>
+<p>Exception Code:</p>
+<pre><code class="lang-csharp">throw new YourCustomOrBuiltInException(&quot;This Message Will Get Logged And Returned&quot;);
+</code></pre>
+<p>Http Response Body (ProblemDetails):</p>
+<pre><code class="lang-json">{
+  &quot;type&quot;: &quot;YourCustomOrBuiltInException&quot;,
+  &quot;title&quot;: &quot;GatewayTimeout&quot;,
+  &quot;status&quot;: 504,
+  &quot;detail&quot;: &quot;This Message Will Get Logged And Returned&quot;,
+  &quot;instance&quot;: &quot;/api/YourEndpoint/PathAndQueryRequest?IncludingParams=true&quot;,
+  &quot;correlationId&quot;: &quot;782e230a-7fb7-43aa-8d64-56d27c9f0e27&quot;
+}
+</code></pre>
+<p>ADDITIONALLY, adding <code>Exception.Data</code> to show multiple errors will be returned as below:</p>
+<p>Exception Code:</p>
+<pre><code class="lang-csharp">var exceptionToBeThrown = new YourCustomOrBuiltInException(&quot;This Message Will Get Logged And Returned&quot;);
+
+exceptionToBeThrown.Data.Add(&quot;TestField1&quot;, &quot;This Failed for some reason&quot;);
+exceptionToBeThrown.Data.Add(&quot;TestField2&quot;, &quot;This Failed for some other reason&quot;);
+exceptionToBeThrown.Data.Add(&quot;TestField3&quot;, &quot;This Failed for another reason&quot;);
+
+throw exceptionToBeThrown;
+</code></pre>
+<p>Http Response Body (ValidationProblemDetails):</p>
+<pre><code class="lang-json">{
+  &quot;type&quot;: &quot;YourCustomOrBuiltInException&quot;,
+  &quot;title&quot;: &quot;GatewayTimeout&quot;,
+  &quot;status&quot;: 504,
+  &quot;detail&quot;: &quot;This Message Will Get Logged And Returned&quot;,
+  &quot;instance&quot;: &quot;/api/YourEndpoint/PathAndQueryRequest?IncludingParams=true&quot;,
+  &quot;correlationId&quot;: &quot;da3f8dde-e4a0-4932-9508-36e52cbad480&quot;,
+  &quot;errors&quot;: {
+    &quot;TestField1&quot;: [&quot;This Failed for some reason&quot;],
+    &quot;TestField2&quot;: [&quot;This Failed for some other reason&quot;],
+    &quot;TestField3&quot;: [&quot;This Failed for another reason&quot;]
+  }
+}
+</code></pre>
+<p>Full Setup Sample (Program.cs)</p>
+<pre><code class="lang-csharp">using ExceptionsAPI;
+using System.Net;
+
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Register custom exceptions and status codes
+builder.Services
+    .AddExceptionsAPI()
+        // Chain multiple exceptions to the same status code to various status codes
+        .AddException&lt;YourCustomOrBuiltInException&gt;(HttpStatusCode.GatewayTimeout);
+
+WebApplication app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseHttpsRedirection();
+
+// Register Exceptions API Middleware
+app.UseExceptionsAPI();
+</code></pre>
+<h2 id="status-code--error-message-runtime-determination">Status Code &amp; Error Message Runtime Determination</h2>
+<p>You can establish specific status codes and error messages for specific exceptions at runtime. This allows you to have a single exception type that can be thrown in multiple places and have different status codes and error messages depending on the context.</p>
+<ol>
+<li><p>Create a class that inherits from the abstract class <code>ExceptionsMiddlewareException</code>. This class will allow an input of a status code as well as an optional client error message (initialized during exception creation).</p>
+<pre><code class="lang-csharp">public class CustomClientException : ExceptionsMiddlewareException
+{
+    private const HttpStatusCode defaultStatusCode = HttpStatusCode.Conflict;
+
+    // You can set a constructor to pass a default status code
+    public CustomClientException(string message) :
+        base(defaultStatusCode, message)
+    { }
+
+    // You can create a constructor to receive a status code dynamically
+    public CustomClientException(HttpStatusCode httpStatusCode, string message) :
+        base(httpStatusCode, message)
+    { }
+
+    public CustomClientException(string message, Exception innerException) :
+        base(defaultStatusCode, message, innerException)
+    { }
+
+    public CustomClientException(HttpStatusCode httpStatusCode, string message, Exception innerException) :
+        base(httpStatusCode, message, innerException)
+    { }
+}
+</code></pre>
+</li>
+<li><p>Throwing the below exception will result in the following response body:</p>
+<pre><code class="lang-csharp">throw new CustomClientException(HttpStatusCode.BadRequest, &quot;Internal Message&quot;)
+{
+    // &quot;Internal Message&quot; will be logged
+    // &quot;External Message&quot; will be returned
+    // &quot;Internal Message&quot; will be returned if ClientErrorMessage is not set
+    ClientErrorMessage = &quot;External Message&quot;
+}
+</code></pre>
+<p>Output:</p>
+<pre><code class="lang-json">{
+  &quot;type&quot;: &quot;CustomClientException&quot;,
+  &quot;title&quot;: &quot;BadRequest&quot;,
+  &quot;status&quot;: 400,
+  &quot;detail&quot;: &quot;External Message&quot;,
+  &quot;instance&quot;: &quot;/api/YourEndpoint/PathAndQueryRequest?IncludingParams=true&quot;
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="correlation-ids">Correlation IDs</h2>
+<p>By default, a correlation ID is generated for each request (random Guid in header key <code>X-Correlation-ID</code>). This correlation ID is included in the response body. This correlation ID can be used to trace the request through the logs. To change this behavior, you can set the <code>ExceptionsAPIOptions</code> in the <code>AddExceptionsAPI</code> method.</p>
+<pre><code class="lang-csharp">serviceCollection.AddExceptionsMiddleware(options =&gt;
+{
+    options.CorrelationKey = &quot;Use-This-Correlation-Key&quot;;
+
+    // Option to derive from HttpContext
+    options.ConfigureCorrelationValue = (httpContext) =&gt; httpContext.TraceIdentifier;
+});
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/BlazorFocused/Exceptions/blob/main/docs/guides/middleware/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

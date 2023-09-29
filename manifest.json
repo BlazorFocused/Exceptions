@@ -1,0 +1,153 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/Exceptions/Exceptions/Documentation/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlazorFocused.Exceptions.Middleware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlazorFocused.Exceptions.Middleware.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "guides/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "guides/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "guides/middleware/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "guides/middleware/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "guides/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "guides/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/BlazorFocused.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/BlazorFocused.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

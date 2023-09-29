@@ -1,0 +1,252 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: BlazorFocused.Exceptions.Middleware
+  name: BlazorFocused.Exceptions.Middleware
+  href: api/BlazorFocused.Exceptions.Middleware.html
+  commentId: N:BlazorFocused.Exceptions.Middleware
+  fullName: BlazorFocused.Exceptions.Middleware
+  nameWithType: BlazorFocused.Exceptions.Middleware
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException
+  name: ExceptionsMiddlewareException
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html
+  commentId: T:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException
+  nameWithType: ExceptionsMiddlewareException
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.#ctor(System.Net.HttpStatusCode,System.String)
+  name: ExceptionsMiddlewareException(HttpStatusCode, string)
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareException__ctor_System_Net_HttpStatusCode_System_String_
+  commentId: M:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.#ctor(System.Net.HttpStatusCode,System.String)
+  name.vb: New(HttpStatusCode, String)
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ExceptionsMiddlewareException(System.Net.HttpStatusCode, string)
+  fullName.vb: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.New(System.Net.HttpStatusCode, String)
+  nameWithType: ExceptionsMiddlewareException.ExceptionsMiddlewareException(HttpStatusCode, string)
+  nameWithType.vb: ExceptionsMiddlewareException.New(HttpStatusCode, String)
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.#ctor(System.Net.HttpStatusCode,System.String,System.Exception)
+  name: ExceptionsMiddlewareException(HttpStatusCode, string, Exception)
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareException__ctor_System_Net_HttpStatusCode_System_String_System_Exception_
+  commentId: M:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.#ctor(System.Net.HttpStatusCode,System.String,System.Exception)
+  name.vb: New(HttpStatusCode, String, Exception)
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ExceptionsMiddlewareException(System.Net.HttpStatusCode, string, System.Exception)
+  fullName.vb: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.New(System.Net.HttpStatusCode, String, System.Exception)
+  nameWithType: ExceptionsMiddlewareException.ExceptionsMiddlewareException(HttpStatusCode, string, Exception)
+  nameWithType.vb: ExceptionsMiddlewareException.New(HttpStatusCode, String, Exception)
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.#ctor*
+  name: ExceptionsMiddlewareException
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareException__ctor_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ExceptionsMiddlewareException
+  fullName.vb: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.New
+  nameWithType: ExceptionsMiddlewareException.ExceptionsMiddlewareException
+  nameWithType.vb: ExceptionsMiddlewareException.New
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ClientErrorMessage
+  name: ClientErrorMessage
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareException_ClientErrorMessage
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ClientErrorMessage
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ClientErrorMessage
+  nameWithType: ExceptionsMiddlewareException.ClientErrorMessage
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ClientErrorMessage*
+  name: ClientErrorMessage
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareException_ClientErrorMessage_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ClientErrorMessage
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.ClientErrorMessage
+  nameWithType: ExceptionsMiddlewareException.ClientErrorMessage
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.StatusCode
+  name: StatusCode
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareException_StatusCode
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.StatusCode
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.StatusCode
+  nameWithType: ExceptionsMiddlewareException.StatusCode
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.StatusCode*
+  name: StatusCode
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareException_StatusCode_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.StatusCode
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareException.StatusCode
+  nameWithType: ExceptionsMiddlewareException.StatusCode
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions
+  name: ExceptionsMiddlewareOptions
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html
+  commentId: T:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions
+  nameWithType: ExceptionsMiddlewareOptions
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.ConfigureCorrelationValue
+  name: ConfigureCorrelationValue
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_ConfigureCorrelationValue
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.ConfigureCorrelationValue
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.ConfigureCorrelationValue
+  nameWithType: ExceptionsMiddlewareOptions.ConfigureCorrelationValue
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.ConfigureCorrelationValue*
+  name: ConfigureCorrelationValue
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_ConfigureCorrelationValue_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.ConfigureCorrelationValue
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.ConfigureCorrelationValue
+  nameWithType: ExceptionsMiddlewareOptions.ConfigureCorrelationValue
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.CorrelationKey
+  name: CorrelationKey
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_CorrelationKey
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.CorrelationKey
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.CorrelationKey
+  nameWithType: ExceptionsMiddlewareOptions.CorrelationKey
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.CorrelationKey*
+  name: CorrelationKey
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_CorrelationKey_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.CorrelationKey
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.CorrelationKey
+  nameWithType: ExceptionsMiddlewareOptions.CorrelationKey
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorMessage
+  name: DefaultErrorMessage
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_DefaultErrorMessage
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorMessage
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorMessage
+  nameWithType: ExceptionsMiddlewareOptions.DefaultErrorMessage
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorMessage*
+  name: DefaultErrorMessage
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_DefaultErrorMessage_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorMessage
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorMessage
+  nameWithType: ExceptionsMiddlewareOptions.DefaultErrorMessage
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorStatusCode
+  name: DefaultErrorStatusCode
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_DefaultErrorStatusCode
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorStatusCode
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorStatusCode
+  nameWithType: ExceptionsMiddlewareOptions.DefaultErrorStatusCode
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorStatusCode*
+  name: DefaultErrorStatusCode
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions_DefaultErrorStatusCode_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorStatusCode
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions.DefaultErrorStatusCode
+  nameWithType: ExceptionsMiddlewareOptions.DefaultErrorStatusCode
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse
+  name: ExceptionsMiddlewareResponse
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.html
+  commentId: T:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse
+  nameWithType: ExceptionsMiddlewareResponse
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.ErrorMessage
+  name: ErrorMessage
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareResponse_ErrorMessage
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.ErrorMessage
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.ErrorMessage
+  nameWithType: ExceptionsMiddlewareResponse.ErrorMessage
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.ErrorMessage*
+  name: ErrorMessage
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareResponse_ErrorMessage_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.ErrorMessage
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.ErrorMessage
+  nameWithType: ExceptionsMiddlewareResponse.ErrorMessage
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.HttpStatusCode
+  name: HttpStatusCode
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareResponse_HttpStatusCode
+  commentId: P:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.HttpStatusCode
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.HttpStatusCode
+  nameWithType: ExceptionsMiddlewareResponse.HttpStatusCode
+- uid: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.HttpStatusCode*
+  name: HttpStatusCode
+  href: api/BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.html#BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareResponse_HttpStatusCode_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.HttpStatusCode
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse.HttpStatusCode
+  nameWithType: ExceptionsMiddlewareResponse.HttpStatusCode
+- uid: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder
+  name: IExceptionsMiddlewareBuilder
+  href: api/BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.html
+  commentId: T:BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder
+  fullName: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder
+  nameWithType: IExceptionsMiddlewareBuilder
+- uid: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException*
+  name: AddException
+  href: api/BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.html#BlazorFocused_Exceptions_Middleware_IExceptionsMiddlewareBuilder_AddException_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException
+  nameWithType: IExceptionsMiddlewareBuilder.AddException
+- uid: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException``1(System.Func{Microsoft.AspNetCore.Http.HttpContext,``0,BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse})
+  name: AddException<TException>(Func<HttpContext, TException, ExceptionsMiddlewareResponse>)
+  href: api/BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.html#BlazorFocused_Exceptions_Middleware_IExceptionsMiddlewareBuilder_AddException__1_System_Func_Microsoft_AspNetCore_Http_HttpContext___0_BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareResponse__
+  commentId: M:BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException``1(System.Func{Microsoft.AspNetCore.Http.HttpContext,``0,BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse})
+  name.vb: AddException(Of TException)(Func(Of HttpContext, TException, ExceptionsMiddlewareResponse))
+  fullName: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException<TException>(System.Func<Microsoft.AspNetCore.Http.HttpContext, TException, BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse>)
+  fullName.vb: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException(Of TException)(System.Func(Of Microsoft.AspNetCore.Http.HttpContext, TException, BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareResponse))
+  nameWithType: IExceptionsMiddlewareBuilder.AddException<TException>(Func<HttpContext, TException, ExceptionsMiddlewareResponse>)
+  nameWithType.vb: IExceptionsMiddlewareBuilder.AddException(Of TException)(Func(Of HttpContext, TException, ExceptionsMiddlewareResponse))
+- uid: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException``1(System.Net.HttpStatusCode)
+  name: AddException<TException>(HttpStatusCode)
+  href: api/BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.html#BlazorFocused_Exceptions_Middleware_IExceptionsMiddlewareBuilder_AddException__1_System_Net_HttpStatusCode_
+  commentId: M:BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException``1(System.Net.HttpStatusCode)
+  name.vb: AddException(Of TException)(HttpStatusCode)
+  fullName: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException<TException>(System.Net.HttpStatusCode)
+  fullName.vb: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException(Of TException)(System.Net.HttpStatusCode)
+  nameWithType: IExceptionsMiddlewareBuilder.AddException<TException>(HttpStatusCode)
+  nameWithType.vb: IExceptionsMiddlewareBuilder.AddException(Of TException)(HttpStatusCode)
+- uid: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException``1(System.Net.HttpStatusCode,System.String)
+  name: AddException<TException>(HttpStatusCode, string)
+  href: api/BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.html#BlazorFocused_Exceptions_Middleware_IExceptionsMiddlewareBuilder_AddException__1_System_Net_HttpStatusCode_System_String_
+  commentId: M:BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException``1(System.Net.HttpStatusCode,System.String)
+  name.vb: AddException(Of TException)(HttpStatusCode, String)
+  fullName: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException<TException>(System.Net.HttpStatusCode, string)
+  fullName.vb: BlazorFocused.Exceptions.Middleware.IExceptionsMiddlewareBuilder.AddException(Of TException)(System.Net.HttpStatusCode, String)
+  nameWithType: IExceptionsMiddlewareBuilder.AddException<TException>(HttpStatusCode, string)
+  nameWithType.vb: IExceptionsMiddlewareBuilder.AddException(Of TException)(HttpStatusCode, String)
+- uid: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions
+  name: ServiceCollectionExtensions
+  href: api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.html
+  commentId: T:BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions
+  fullName: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+- uid: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddExceptionsMiddleware(IServiceCollection)
+  href: api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.html#BlazorFocused_Exceptions_Middleware_ServiceCollectionExtensions_AddExceptionsMiddleware_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddExceptionsMiddleware(IServiceCollection)
+- uid: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions})
+  name: AddExceptionsMiddleware(IServiceCollection, Action<ExceptionsMiddlewareOptions>)
+  href: api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.html#BlazorFocused_Exceptions_Middleware_ServiceCollectionExtensions_AddExceptionsMiddleware_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_BlazorFocused_Exceptions_Middleware_ExceptionsMiddlewareOptions__
+  commentId: M:BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions})
+  name.vb: AddExceptionsMiddleware(IServiceCollection, Action(Of ExceptionsMiddlewareOptions))
+  fullName: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions>)
+  fullName.vb: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of BlazorFocused.Exceptions.Middleware.ExceptionsMiddlewareOptions))
+  nameWithType: ServiceCollectionExtensions.AddExceptionsMiddleware(IServiceCollection, Action<ExceptionsMiddlewareOptions>)
+  nameWithType.vb: ServiceCollectionExtensions.AddExceptionsMiddleware(IServiceCollection, Action(Of ExceptionsMiddlewareOptions))
+- uid: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware*
+  name: AddExceptionsMiddleware
+  href: api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.html#BlazorFocused_Exceptions_Middleware_ServiceCollectionExtensions_AddExceptionsMiddleware_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.AddExceptionsMiddleware
+  nameWithType: ServiceCollectionExtensions.AddExceptionsMiddleware
+- uid: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.UseExceptionsMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)
+  name: UseExceptionsMiddleware(IApplicationBuilder)
+  href: api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.html#BlazorFocused_Exceptions_Middleware_ServiceCollectionExtensions_UseExceptionsMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_
+  commentId: M:BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.UseExceptionsMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)
+  fullName: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.UseExceptionsMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)
+  nameWithType: ServiceCollectionExtensions.UseExceptionsMiddleware(IApplicationBuilder)
+- uid: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.UseExceptionsMiddleware*
+  name: UseExceptionsMiddleware
+  href: api/BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.html#BlazorFocused_Exceptions_Middleware_ServiceCollectionExtensions_UseExceptionsMiddleware_
+  commentId: Overload:BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.UseExceptionsMiddleware
+  isSpec: "True"
+  fullName: BlazorFocused.Exceptions.Middleware.ServiceCollectionExtensions.UseExceptionsMiddleware
+  nameWithType: ServiceCollectionExtensions.UseExceptionsMiddleware
+- uid: api/index
+  name: API
+  href: api/index.html
+- uid: guides/Middleware/index
+  name: Middleware
+  href: guides/middleware/index.html
+- uid: guides/index
+  name: Guides
+  href: guides/index.html
+- uid: home
+  name: Home
+  href: index.html
