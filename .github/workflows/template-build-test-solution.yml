@@ -1,0 +1,43 @@
+name: Template - Solution Build/Test
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: "Display Name of Job"
+        required: true
+        type: string
+      working-directory:
+        description: "Relative path to source directory folder"
+        required: true
+        type: string
+
+jobs:
+  solution-build-test:
+    name: ${{ inputs.name }}
+    runs-on: ubuntu-latest
+
+    env:
+      dotnet-install-framework: 8.0.x
+
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.dotnet-install-framework }}
+          include-prerelease: true
+
+      - name: Install Dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal

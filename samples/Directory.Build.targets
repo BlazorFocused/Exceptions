@@ -1,0 +1,20 @@
+<Project>
+
+  <PropertyGroup Label="Documentation Settings" Condition="'$(GenerateDocumentationFile)' == 'true'">
+    <!--
+      Make sure any documentation comments which are included in code get checked for syntax during the build, but do
+      not report warnings for missing comments.
+      CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member'
+      CS1573: Parameter 'parameter' has no matching param tag in the XML comment for 'parameter' (but other parameters do)
+      CS1587: XML comment is not placed on a valid language element
+      CS1590: Invalid XML include element - Missing file attribute
+    -->
+    <NoWarn>$(NoWarn);1591;1573;1587;1590</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Publishing Properties">
+    <!-- Override source publishing properties for sample projects-->
+    <IncludeSymbols>false</IncludeSymbols>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+</Project>

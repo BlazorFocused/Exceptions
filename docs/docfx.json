@@ -1,0 +1,53 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["BlazorFocused.Exceptions.Middleware.csproj"],
+          "src": "../src/Middleware/src"
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "properties": {
+        "TargetFramework": "net8.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["api/**.yml", "api/index.md"]
+      },
+      {
+        "files": ["guides/**.md", "guides/**/toc.yml", "toc.yml", "*.md"],
+        "exclude": ["README.md"]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["images/**", "CNAME"]
+      }
+    ],
+    "overwrite": [
+      {
+        "exclude": ["obj/**", "build/**"]
+      }
+    ],
+    "globalMetadata": {
+      "_appTitle": "Documentation",
+      "_appLogoPath": "images/BlazorFocused.png"
+    },
+    "dest": "build",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": ["default"],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}
