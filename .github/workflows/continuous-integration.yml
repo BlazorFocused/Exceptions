@@ -1,0 +1,46 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "docs/**"
+      - "**/README.md"
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "docs/**"
+      - "**/README.md"
+  release:
+    types:
+      - published
+
+jobs:
+  build-middleware:
+    uses: ./.github/workflows/template-build-test-project.yml
+    with:
+      name: "BlazorFocused.Exceptions.Middleware Build"
+      source-directory: ./src/Middleware/src
+      source-project: BlazorFocused.Exceptions.Middleware.csproj
+      test-directory: ./src/Middleware/test
+      test-project: BlazorFocused.Exceptions.Middleware.Test.csproj
+
+  build-samples:
+    uses: ./.github/workflows/template-build-test-solution.yml
+    with:
+      name: "BlazorFocused.Exceptions.Samples Build"
+      working-directory: ./samples
+
+  release-middleware:
+    needs: [build-middleware, build-samples]
+    if: github.event_name == 'release'
+    uses: ./.github/workflows/template-release-nuget-package.yml
+    with:
+      name: "Template.Starter Release"
+      source-project-path: ./Middleware/src/BlazorFocused.Exceptions.Middleware.csproj
+      source-release-path: ./Middleware/src/bin/Release
+      working-directory: ./src
+      version: ${{ github.event.release.tag_name }}
+    secrets: inherit

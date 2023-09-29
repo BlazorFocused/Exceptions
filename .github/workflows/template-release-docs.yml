@@ -1,0 +1,82 @@
+name: Template - Docs Release
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: "Display Name of Job"
+        required: true
+        type: string
+      documentation-folder-path:
+        description: "Relative path to documentation folder (root for docfx.json configuration)"
+        required: true
+        type: string
+      github-pages-branch:
+        description: "Branch that contains GitHub Pages"
+        required: true
+        type: string
+      github-user-email:
+        description: "Email of user to display for deploy commit to GitHub Pages branch"
+        required: true
+        type: string
+      github-user-name:
+        description: "Name of user to display for deploy commit to GitHub Pages branch"
+        required: true
+        type: string
+
+jobs:
+  deploy-docs:
+    name: ${{ inputs.name }}
+    runs-on: windows-latest
+
+    env:
+      documentation-directory: Documentation
+      github-pages-directory: GitHubPages
+
+    steps:
+      - name: Checkout Docs Repo
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.documentation-directory }}
+
+      - name: Checkout GitHub Pages Branch
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.github-pages-directory }}
+          ref: ${{ inputs.github-pages-branch }}
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 8.0.x
+          include-prerelease: true
+
+      - name: Install DocFx
+        run: |
+          dotnet tool update -g docfx --version 2.70.0
+
+      - name: Build Documentation
+        working-directory: ./${{ env.documentation-directory }}/${{ inputs.documentation-folder-path }}
+        run: docfx docfx.json
+
+      - name: Copy New GitHub Pages
+        shell: bash
+        run: |
+          rm -r ${{ env.github-pages-directory }}/*
+          cp -a ${{ env.documentation-directory }}/${{ inputs.documentation-folder-path }}/build/. ${{ env.github-pages-directory }}
+
+      - name: Set GitHub User Configuration
+        shell: bash
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.name ${{ inputs.github-user-name }}
+          git config --global user.email ${{ inputs.github-user-email }}
+
+      - name: Push New GitHub Pages
+        shell: bash
+        if: github.event_name == 'push'
+        working-directory: ./${{ env.github-pages-directory }}
+        run: |
+          git add -A
+          git commit -m "commit sha -> ${{ github.sha }}"
+          git push

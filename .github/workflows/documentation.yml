@@ -1,0 +1,25 @@
+name: Documentation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+
+jobs:
+  docs:
+    permissions:
+      contents: write
+    uses: ./.github/workflows/template-release-docs.yml
+    with:
+      name: "BlazorFocused.Exceptions Documentation"
+      documentation-folder-path: docs
+      github-pages-branch: gh-pages
+      github-user-email: blazorfocused-automation@users.noreply.github.com
+      github-user-name: Pages-Automation

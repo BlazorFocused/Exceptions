@@ -1,0 +1,57 @@
+name: Template - NuGet Package Release
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: "Display Name of Job"
+        required: true
+        type: string
+      source-project-path:
+        description: "Relative path to source project (path + file)"
+        required: true
+        type: string
+      source-release-path:
+        description: "Relative path to nuget resource release"
+        required: true
+        type: string
+      working-directory:
+        description: "Working directory of main source folder"
+        required: true
+        type: string
+      version:
+        description: "Version of NuGet package to push"
+        required: true
+        type: string
+
+jobs:
+  project-build-test:
+    name: ${{ inputs.name }}
+    runs-on: ubuntu-latest
+
+    env:
+      NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 8.0.x
+          include-prerelease: true
+
+      - name: Install Dependencies
+        working-directory: ${{ inputs.working-directory }}
+        run: |
+          dotnet restore ${{ inputs.source-project-path }}
+
+      - name: Create Release Packages
+        working-directory: ${{ inputs.working-directory }}
+        run: |
+          dotnet pack ${{ inputs.source-project-path }} -c Release --no-restore -p:PackageVersion=${{ inputs.version }}
+
+      - name: Push Release Packages
+        working-directory: ${{ inputs.working-directory }}
+        run: |
+          dotnet nuget push ${{ inputs.source-release-path }}/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}

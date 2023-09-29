@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Documentation Settings" Condition="'$(GenerateDocumentationFile)' == 'true'">
+    <!--
+      Make sure any documentation comments which are included in code get checked for syntax during the build, but do
+      not report warnings for missing comments.
+      CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member'
+      CS1573: Parameter 'parameter' has no matching param tag in the XML comment for 'parameter' (but other parameters do)
+      CS1587: XML comment is not placed on a valid language element
+      CS1590: Invalid XML include element - Missing file attribute
+    -->
+    <NoWarn>$(NoWarn);1591;1573;1587;1590</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Moq" />
+    <PackageReference Include="BlazorFocused.Testing.Logging" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\BlazorFocused.Exceptions.Middleware.csproj" />
+  </ItemGroup>
+
+</Project>
