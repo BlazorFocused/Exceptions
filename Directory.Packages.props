@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (Source)" Condition="'$(TargetFramework)' == 'net8.0'">
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0-rc.1.23421.29" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0-rc.1.23419.4" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-rc.1.23419.4" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (Test)">
@@ -37,7 +37,7 @@
     <PackageVersion Include="Bogus" Version="34.0.2" />
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
     <PackageVersion Include="Moq" Version="4.18.3" />
-    <PackageVersion Include="BlazorFocused.Testing.Logging" Version="1.0.0-alpha2" />
+    <PackageVersion Include="BlazorFocused.Testing.Logging" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
