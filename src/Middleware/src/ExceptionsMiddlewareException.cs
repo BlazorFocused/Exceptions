@@ -28,7 +28,7 @@ public abstract class ExceptionsMiddlewareException : Exception
     /// <param name="httpStatusCode">Desired status code of a given exception</param>
     /// <param name="message">Message that should be logged in case of given exception</param>
     /// <remarks>Passed in "message" will also be output to client/user if "clientErrorMessage" not specified</remarks>
-    public ExceptionsMiddlewareException(HttpStatusCode httpStatusCode, string message) :
+    protected ExceptionsMiddlewareException(HttpStatusCode httpStatusCode, string message) :
         base(message)
     {
         StatusCode = httpStatusCode;
@@ -41,7 +41,7 @@ public abstract class ExceptionsMiddlewareException : Exception
     /// <param name="message">Message that should be logged in case of given exception</param>
     /// <param name="innerException">Inner exception that triggered exception response</param>
     /// <remarks>Passed in "message" will also be output to client/user if "clientErrorMessage" not specified</remarks>
-    public ExceptionsMiddlewareException(HttpStatusCode httpStatusCode, string message, Exception innerException) :
+    protected ExceptionsMiddlewareException(HttpStatusCode httpStatusCode, string message, Exception innerException) :
         base(message, innerException)
     {
         StatusCode = httpStatusCode;

@@ -14,15 +14,8 @@ using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 
 namespace BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
 
-internal class ApplicationBuilderMiddleware
+internal class ApplicationBuilderMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate next;
-
-    public ApplicationBuilderMiddleware(RequestDelegate next)
-    {
-        this.next = next;
-    }
-
     public async Task Invoke(
         HttpContext httpContext,
         IOptions<ExceptionsMiddlewareOptions> exceptionsMiddlewareOptions,
