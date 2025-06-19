@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
+        dotnet-target-framework: ["net8.0", "net9.0"]
         include:
           - dotnet-install-framework: 8.0.x
             dotnet-target-framework: net8.0
