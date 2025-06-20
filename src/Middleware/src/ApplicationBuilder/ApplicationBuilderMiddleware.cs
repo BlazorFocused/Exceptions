@@ -160,6 +160,11 @@ internal class ApplicationBuilderMiddleware(RequestDelegate next)
 
             httpContext.Response.StatusCode = problemDetails.Status ?? (int)HttpStatusCode.InternalServerError;
 
+            if (exceptionsMiddlewareOptionsValue.ConfigureProblemDetails is not null)
+            {
+                problemDetails = exceptionsMiddlewareOptionsValue.ConfigureProblemDetails(httpContext, exception, problemDetails);
+            }
+
             await httpContext.Response.WriteAsJsonAsync(
                 problemDetails,
                 problemDetails.GetType(), // WriteAsJson needs type to add additional fields provided in ValidationProblemDetails
