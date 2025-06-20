@@ -15,12 +15,19 @@ builder.Services.AddOpenApi();
 
 // Register custom exceptions and status codes
 builder.Services
-    // .AddExceptionsMiddleware() -> Use this extension for  default correlation key/value
+    // .AddExceptionsMiddleware() -> Use this extension for  default correlation key/value and configuration
     .AddExceptionsMiddleware(options =>
     {
         options.CorrelationKey = "X-TestCorrelation-Id";
         options.CorrelationKey = CORRELATION_HEADER_KEY;
         options.ConfigureCorrelationValue = (httpContext) => httpContext.TraceIdentifier;
+
+        options.ConfigureProblemDetails = (httpContext, exception, problemDetails) =>
+        {
+            Console.WriteLine("Here you can override the ProblemDetails object returned to the client.");
+            Console.WriteLine("Also a good place to breakpoint during development to examine thrown exceptions.");
+            return problemDetails;
+        };
     }) // Use this extension for  default correlation key/value
         .AddException<RandomException>(HttpStatusCode.FailedDependency);
 

@@ -37,5 +37,5 @@ public class ExceptionsMiddlewareOptions
     /// <summary>
     /// Provide a way to override/configure the ProblemDetails object before it is returned to the client
     /// </summary>
-    public Func<HttpContext, Exception, ProblemDetails, ProblemDetails> ConfigureProblemDetails { get; init; }
+    public Func<HttpContext, Exception, ProblemDetails, ProblemDetails> ConfigureProblemDetails { get; set; }
 }
