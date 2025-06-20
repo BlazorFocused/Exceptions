@@ -1,0 +1,8 @@
+@baseAddress = https://localhost:7288
+
+GET {{baseAddress}}/ThrowRandomException
+
+###
+
+GET {{baseAddress}}/ThrowCustomClientException?statusCode=400&message=Test%20Exception%20Throw
+

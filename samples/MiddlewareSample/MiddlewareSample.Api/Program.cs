@@ -11,7 +11,7 @@ using BlazorFocused.Exceptions.Middleware;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 
 // Register custom exceptions and status codes
 builder.Services
@@ -20,15 +20,14 @@ builder.Services
     {
         options.CorrelationKey = "X-TestCorrelation-Id";
         options.CorrelationKey = CORRELATION_HEADER_KEY;
-        options.ConfigureCorrelationValue = (httpContext) => { return httpContext.TraceIdentifier; };
+        options.ConfigureCorrelationValue = (httpContext) => httpContext.TraceIdentifier;
     }) // Use this extension for  default correlation key/value
         .AddException<RandomException>(HttpStatusCode.FailedDependency);
 
 WebApplication app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
 app.UseHttpsRedirection();
+app.MapOpenApi();
 
 // Register Exceptions API Middleware
 app.UseExceptionsMiddleware();

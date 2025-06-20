@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      dotnet-install-framework: 8.0.x
+      dotnet-install-framework: 9.0.x
 
     defaults:
       run:
