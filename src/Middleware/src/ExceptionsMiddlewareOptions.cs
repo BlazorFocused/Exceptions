@@ -4,6 +4,7 @@
 // -------------------------------------------------------
 
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace BlazorFocused.Exceptions.Middleware;
@@ -32,4 +33,9 @@ public class ExceptionsMiddlewareOptions
     /// Default error status code if none specified for given type of exception
     /// </summary>
     public HttpStatusCode DefaultErrorStatusCode { get; set; } = HttpStatusCode.InternalServerError;
+
+    /// <summary>
+    /// Provide a way to override/configure the ProblemDetails object before it is returned to the client
+    /// </summary>
+    public Func<HttpContext, Exception, ProblemDetails, ProblemDetails> ConfigureProblemDetails { get; set; }
 }
