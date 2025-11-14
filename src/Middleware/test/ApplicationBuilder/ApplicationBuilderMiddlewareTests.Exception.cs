@@ -3,8 +3,10 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
+using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
+using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
+using BlazorFocused.Testing.Logging;
 using Bogus;
-using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,9 +14,6 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Moq;
 using System.Net;
-using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
-using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
-using BlazorFocused.Testing.Logging;
 
 namespace BlazorFocused.Exceptions.Middleware.Test.ApplicationBuilder;
 
@@ -36,7 +35,7 @@ public partial class ApplicationBuilderMiddlewareTests
 
         requestDelegateMock.Setup(request =>
                 request.Invoke(httpContext))
-                    .ThrowsAsync(thrownException);
+            .ThrowsAsync(thrownException);
 
         Exception actualException =
             await Record.ExceptionAsync(() =>
@@ -49,7 +48,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         Assert.Equal(expectedMessage, actualErrorResponse.Detail);
         Assert.Equal(expectedInstance, actualErrorResponse.Instance);
@@ -80,11 +79,11 @@ public partial class ApplicationBuilderMiddlewareTests
 
         // IOptionsMonitor should not be called
         // This will cause a null reference exception and fail test if called
-        IOptionsMonitor<ExceptionsMiddlewareBuilderOptions> emptyOptionsMonitor = default;
+        IOptionsMonitor<ExceptionsMiddlewareBuilderOptions> emptyOptionsMonitor = null;
 
         requestDelegateMock.Setup(request =>
                 request.Invoke(httpContext))
-                    .ThrowsAsync(thrownException);
+            .ThrowsAsync(thrownException);
 
         Exception actualException =
             await Record.ExceptionAsync(() =>
@@ -97,7 +96,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         // Check only client message is seen by consumer
         Assert.Equal(externalClientMessage, actualErrorResponse.Detail);

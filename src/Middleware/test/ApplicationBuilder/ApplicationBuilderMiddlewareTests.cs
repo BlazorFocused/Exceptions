@@ -3,6 +3,8 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
+using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
+using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 using Bogus;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,8 +13,6 @@ using Moq;
 using System.Net;
 using System.Text;
 using System.Text.Json;
-using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
-using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 using Xunit.Sdk;
 
 namespace BlazorFocused.Exceptions.Middleware.Test.ApplicationBuilder;

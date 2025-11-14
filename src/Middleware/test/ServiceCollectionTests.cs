@@ -3,7 +3,6 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
-using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -27,7 +26,7 @@ public class ServiceCollectionTests
         ExceptionsMiddlewareOptions actualMiddlewareOptions =
             serviceProvider.GetRequiredService<IOptions<ExceptionsMiddlewareOptions>>().Value;
 
-        actualMiddlewareOptions.Should().BeEquivalentTo(expectedMiddlewareOptions);
+        Assert.Equivalent(expectedMiddlewareOptions, actualMiddlewareOptions);
     }
 
     [Fact]
@@ -60,7 +59,9 @@ public class ServiceCollectionTests
         ExceptionsMiddlewareOptions actualMiddlewareOptions =
             serviceProvider.GetRequiredService<IOptions<ExceptionsMiddlewareOptions>>().Value;
 
-        actualMiddlewareOptions.Should().BeEquivalentTo(expectedMiddlewareOptions);
+        Assert.Equivalent(expectedMiddlewareOptions, actualMiddlewareOptions);
+
+        return;
 
         static string ConfigureCorrelation(HttpContext httpContext)
         {

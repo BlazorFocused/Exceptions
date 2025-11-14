@@ -6,7 +6,6 @@
 using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
 using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 using Bogus;
-using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -43,7 +42,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         Assert.Equal(exceptionsMiddlewareOptions.DefaultErrorMessage, actualErrorResponse.Detail);
         Assert.Equal(expectedInstance, actualErrorResponse.Instance);
@@ -87,7 +86,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         Assert.Equal(expectedMessage, actualErrorResponse.Detail);
         Assert.Equal(expectedInstance, actualErrorResponse.Instance);
@@ -139,7 +138,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         Assert.Equal(expectedMessage, actualErrorResponse.Detail);
         Assert.NotEqual(exceptionMessage, actualErrorResponse.Detail);
@@ -194,7 +193,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         Assert.Equal(expectedDetail, actualErrorResponse.Detail);
         Assert.Equal(expectedInstance, actualErrorResponse.Instance);

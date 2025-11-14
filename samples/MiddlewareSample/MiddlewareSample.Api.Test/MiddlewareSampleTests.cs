@@ -12,7 +12,6 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Web;
 using BlazorFocused.Exceptions.Middleware;
-using Xunit.Abstractions;
 
 namespace MiddlewareSample.Api.Test;
 
@@ -38,7 +37,7 @@ public class MiddlewareSampleTests
 
         string url = $"/ThrowCustomClientException?statusCode={(int)expectedStatusCode}";
 
-        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url);
+        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url, TestContext.Current.CancellationToken);
 
         testOutputHelper.WriteLine("Expected Status Code: {0}", httpResponseMessage.StatusCode);
 
@@ -52,7 +51,7 @@ public class MiddlewareSampleTests
     {
         string url = "/ThrowRandomException";
 
-        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url);
+        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url, TestContext.Current.CancellationToken);
 
         ProblemDetails problemDetails = await GetProblemDetailsAsync(httpResponseMessage);
 
@@ -73,7 +72,7 @@ public class MiddlewareSampleTests
 
         string url = $"/ThrowCustomClientException?statusCode={(int)expectedStatusCode}&message={expectedMessage}";
 
-        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url);
+        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url, TestContext.Current.CancellationToken);
 
         ProblemDetails problemDetails = await GetProblemDetailsAsync(httpResponseMessage);
 
@@ -95,7 +94,7 @@ public class MiddlewareSampleTests
 
         string url = $"/ThrowCustomClientException?statusCode={(int)expectedStatusCode}&message={internalExceptionMessage}&clientMessage={expectedClientMessage}";
 
-        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url);
+        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(url, TestContext.Current.CancellationToken);
 
         ProblemDetails problemDetails = await GetProblemDetailsAsync(httpResponseMessage);
 
