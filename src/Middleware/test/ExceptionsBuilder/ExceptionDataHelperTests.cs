@@ -3,11 +3,10 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
+using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 using Bogus;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
-using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 
 namespace BlazorFocused.Exceptions.Middleware.Test.ExceptionsBuilder;
 
@@ -52,8 +51,8 @@ public class ExceptionDataHelperTests
         Assert.NotEmpty(problemDetails.Errors);
         Assert.Equal(2, problemDetails.Errors.Count);
 
-        problemDetails.Errors[firstArrayKey].Should().BeEquivalentTo(firstArrayOfStrings);
-        problemDetails.Errors[secondArrayKey].Should().BeEquivalentTo(secondArrayOfStrings);
+        Assert.Equivalent(firstArrayOfStrings, problemDetails.Errors[firstArrayKey]);
+        Assert.Equivalent(secondArrayOfStrings, problemDetails.Errors[secondArrayKey]);
     }
 
     [Fact]
@@ -76,8 +75,8 @@ public class ExceptionDataHelperTests
         Assert.NotEmpty(problemDetails.Errors);
         Assert.Equal(2, problemDetails.Errors.Count);
 
-        problemDetails.Errors[firstArrayKey].Should().BeEquivalentTo(firstArrayOfStrings);
-        problemDetails.Errors[secondArrayKey].Should().BeEquivalentTo(secondArrayOfStrings);
+        Assert.Equivalent(firstArrayOfStrings, problemDetails.Errors[firstArrayKey]);
+        Assert.Equivalent(secondArrayOfStrings, problemDetails.Errors[secondArrayKey]);
     }
 
     [Fact]
@@ -112,7 +111,11 @@ public class ExceptionDataHelperTests
         string inputObjectOneString = JsonSerializer.Serialize(inputObjectOne);
         string inputObjectTwoString = JsonSerializer.Serialize(inputObjectTwo);
 
-        exception.Data.Add(inputObjectKey, new TestObjectClass[] { inputObjectOne, inputObjectTwo });
+        exception.Data.Add(inputObjectKey, new[]
+        {
+            inputObjectOne,
+            inputObjectTwo
+        });
 
         ExceptionDataHelper.SetValidationDetailsFromExceptionData(problemDetails, exception);
 
@@ -135,7 +138,11 @@ public class ExceptionDataHelperTests
         string inputObjectOneString = JsonSerializer.Serialize(inputObjectOne);
         string inputObjectTwoString = JsonSerializer.Serialize(inputObjectTwo);
 
-        exception.Data.Add(inputObjectKey, new List<TestObjectClass> { inputObjectOne, inputObjectTwo });
+        exception.Data.Add(inputObjectKey, new List<TestObjectClass>
+        {
+            inputObjectOne,
+            inputObjectTwo
+        });
 
         ExceptionDataHelper.SetValidationDetailsFromExceptionData(problemDetails, exception);
 

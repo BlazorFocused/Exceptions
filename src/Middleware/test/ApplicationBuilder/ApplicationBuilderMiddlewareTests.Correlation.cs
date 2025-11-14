@@ -3,15 +3,14 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
+using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
+using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 using Bogus;
-using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Moq;
-using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
-using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 
 namespace BlazorFocused.Exceptions.Middleware.Test.ApplicationBuilder;
 
@@ -37,7 +36,7 @@ public partial class ApplicationBuilderMiddlewareTests
 
         requestDelegateMock.Setup(request =>
                 request.Invoke(httpContext))
-                    .ThrowsAsync(thrownException);
+            .ThrowsAsync(thrownException);
 
         Exception actualException =
             await Record.ExceptionAsync(() =>
@@ -50,7 +49,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         // Check Key and default Guid Value
         Assert.True(httpContext.Response.Headers.ContainsKey(expectedCorrelationHeader));
@@ -89,7 +88,7 @@ public partial class ApplicationBuilderMiddlewareTests
                     NullLogger<ApplicationBuilderMiddleware>.Instance));
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         // Check Key and default Guid Value
         Assert.True(httpContext.Response.Headers.ContainsKey(expectedCorrelationHeader));
@@ -110,7 +109,7 @@ public partial class ApplicationBuilderMiddlewareTests
 
         var exceptionsMiddlewareOptions = new ExceptionsMiddlewareOptions
         {
-            ConfigureCorrelationValue = (context) => context.TraceIdentifier
+            ConfigureCorrelationValue = context => context.TraceIdentifier
         };
 
         // IOptionsMonitor should not be called
@@ -119,7 +118,7 @@ public partial class ApplicationBuilderMiddlewareTests
 
         requestDelegateMock.Setup(request =>
                 request.Invoke(httpContext))
-                    .ThrowsAsync(thrownException);
+            .ThrowsAsync(thrownException);
 
         Exception actualException =
             await Record.ExceptionAsync(() =>
@@ -132,10 +131,11 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         // Check Correlation Value
-        Assert.Equal(expectedCorrelationValue, httpContext.Response.Headers[exceptionsMiddlewareOptions.CorrelationKey]);
+        Assert.Equal(expectedCorrelationValue,
+            httpContext.Response.Headers[exceptionsMiddlewareOptions.CorrelationKey]);
 
         Assert.Equal(exceptionsMiddlewareOptions.DefaultErrorMessage, actualErrorResponse.Detail);
         Assert.Equal(expectedInstance, actualErrorResponse.Instance);
@@ -156,7 +156,7 @@ public partial class ApplicationBuilderMiddlewareTests
 
         var exceptionsMiddlewareOptions = new ExceptionsMiddlewareOptions
         {
-            ConfigureCorrelationValue = (context) => context.TraceIdentifier
+            ConfigureCorrelationValue = context => context.TraceIdentifier
         };
 
         // IOptionsMonitor should not be called
@@ -172,10 +172,11 @@ public partial class ApplicationBuilderMiddlewareTests
                     NullLogger<ApplicationBuilderMiddleware>.Instance));
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         // Check Correlation Value
-        Assert.Equal(expectedCorrelationValue, httpContext.Response.Headers[exceptionsMiddlewareOptions.CorrelationKey]);
+        Assert.Equal(expectedCorrelationValue,
+            httpContext.Response.Headers[exceptionsMiddlewareOptions.CorrelationKey]);
         Assert.Equal(200, httpContext.Response.StatusCode);
     }
 
@@ -194,7 +195,7 @@ public partial class ApplicationBuilderMiddlewareTests
         var exceptionsMiddlewareOptions = new ExceptionsMiddlewareOptions
         {
             CorrelationKey = expectedCorrelationHeader,
-            ConfigureCorrelationValue = (context) => context.TraceIdentifier
+            ConfigureCorrelationValue = context => context.TraceIdentifier
         };
 
         // IOptionsMonitor should not be called
@@ -203,7 +204,7 @@ public partial class ApplicationBuilderMiddlewareTests
 
         requestDelegateMock.Setup(request =>
                 request.Invoke(httpContext))
-                    .ThrowsAsync(thrownException);
+            .ThrowsAsync(thrownException);
 
         Exception actualException =
             await Record.ExceptionAsync(() =>
@@ -216,7 +217,7 @@ public partial class ApplicationBuilderMiddlewareTests
         ProblemDetails actualErrorResponse = await GetErrorResponseFromBody<ProblemDetails>(memoryStream);
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         // Check Correlation Value
         Assert.Equal(expectedCorrelationValue, httpContext.Response.Headers[expectedCorrelationHeader]);
@@ -242,7 +243,7 @@ public partial class ApplicationBuilderMiddlewareTests
         var exceptionsMiddlewareOptions = new ExceptionsMiddlewareOptions
         {
             CorrelationKey = expectedCorrelationHeader,
-            ConfigureCorrelationValue = (context) => context.TraceIdentifier
+            ConfigureCorrelationValue = context => context.TraceIdentifier
         };
 
         // IOptionsMonitor should not be called
@@ -258,7 +259,7 @@ public partial class ApplicationBuilderMiddlewareTests
                     NullLogger<ApplicationBuilderMiddleware>.Instance));
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         // Check Correlation Value
         Assert.Equal(expectedCorrelationValue, httpContext.Response.Headers[expectedCorrelationHeader]);

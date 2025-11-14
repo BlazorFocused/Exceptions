@@ -3,16 +3,15 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
+using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
+using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 using Bogus;
-using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Moq;
 using System.Net;
-using BlazorFocused.Exceptions.Middleware.ApplicationBuilder;
-using BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 
 namespace BlazorFocused.Exceptions.Middleware.Test.ApplicationBuilder;
 
@@ -20,7 +19,8 @@ public partial class ApplicationBuilderMiddlewareTests
 {
     [Theory]
     [MemberData(nameof(ExceptionsWithStatusCode))]
-    public async Task Invoke_ShouldReturnValidationProblemDetails(Exception thrownException, HttpStatusCode expectedStatusCode)
+    public async Task Invoke_ShouldReturnValidationProblemDetails(Exception thrownException,
+        HttpStatusCode expectedStatusCode)
     {
         // Adding data to exception should signal use of Problem Details
         thrownException.Data.Add("TestField1", "TestValue1");
@@ -45,7 +45,7 @@ public partial class ApplicationBuilderMiddlewareTests
 
         requestDelegateMock.Setup(request =>
                 request.Invoke(httpContext))
-                    .ThrowsAsync(thrownException);
+            .ThrowsAsync(thrownException);
 
         Exception actualException =
             await Record.ExceptionAsync(() =>
@@ -64,7 +64,7 @@ public partial class ApplicationBuilderMiddlewareTests
         Assert.Equal("TestValue3", actualErrorResponse.Errors["TestField3"].First());
 
         // Should be null since error is caught
-        actualException.Should().BeNull();
+        Assert.Null(actualException);
 
         Assert.Equal(expectedMessage, actualErrorResponse.Detail);
         Assert.Equal(expectedInstance, actualErrorResponse.Instance);

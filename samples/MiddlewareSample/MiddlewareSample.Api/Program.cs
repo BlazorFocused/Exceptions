@@ -43,8 +43,7 @@ app.UseExceptionsMiddleware();
 app.MapGet("/ThrowRandomException", () =>
 {
     throw new RandomException();
-})
-.WithOpenApi();
+});
 
 app.MapGet("/ThrowCustomClientException", (
     [FromQuery] HttpStatusCode? statusCode,
@@ -65,8 +64,7 @@ app.MapGet("/ThrowCustomClientException", (
     };
 
     throw exception;
-})
-.WithOpenApi();
+});
 
 app.Run();
 

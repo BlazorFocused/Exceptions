@@ -5,30 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (All Frameworks)">
-    <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.6" />
-  </ItemGroup>
-
-  <ItemGroup Label="Microsoft NuGet Packages (Source)" Condition="'$(TargetFramework)' == 'net8.0'">
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.17" />
-  </ItemGroup>
-
-  <ItemGroup Label="Microsoft NuGet Packages (Source)" Condition="'$(TargetFramework)' == 'net9.0'">
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (Test)">
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageVersion Include="xunit" Version="2.9.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.1" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="xunit.v3" Version="3.1.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup Label="External Testing Packages">
-    <PackageVersion Include="Bogus" Version="35.6.3" />
-    <PackageVersion Include="FluentAssertions" Version="[7.0.0]" />
-    <PackageVersion Include="Moq" Version="[4.18.4]" />
+    <PackageVersion Include="Bogus" Version="35.6.5" />
+    <PackageVersion Include="Moq" Version="[4.20.72]" />
     <PackageVersion Include="BlazorFocused.Testing.Logging" Version="1.0.0" />
   </ItemGroup>
 
