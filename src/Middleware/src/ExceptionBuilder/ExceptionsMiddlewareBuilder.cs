@@ -9,15 +9,8 @@ using System.Net;
 
 namespace BlazorFocused.Exceptions.Middleware.ExceptionBuilder;
 
-internal class ExceptionsMiddlewareBuilder : IExceptionsMiddlewareBuilder
+internal class ExceptionsMiddlewareBuilder(IServiceCollection serviceCollection) : IExceptionsMiddlewareBuilder
 {
-    private readonly IServiceCollection serviceCollection;
-
-    public ExceptionsMiddlewareBuilder(IServiceCollection serviceCollection)
-    {
-        this.serviceCollection = serviceCollection;
-    }
-
     public IExceptionsMiddlewareBuilder AddException<TException>(HttpStatusCode httpStatusCode)
         where TException : Exception
     {
